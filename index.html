@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trishna's Glam Corner | Certified Grooming Trainer</title>
+    <meta name="description"
+        content="Professional makeup, hairstyling, and grooming training by Trishna Das. Elevate your confidence with certified grooming expertise.">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Light Mode Variables */
+            --primary: #5a2a2a;
+            --gold: #d4af37;
+            --soft-pink: #fbc2eb;
+            --accent: #f8cdda;
+            --bg: #fffcfb;
+            --section-bg: #ffffff;
+            --text-dark: #2d1b1b;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 30px rgba(90, 42, 42, 0.1);
+            --border: #f0f0f0;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark-mode {
+            /* Dark Mode Variables */
+            --primary: #f8cdda;
+            --gold: #d4af37;
+            --soft-pink: #5a2a2a;
+            --accent: #3d2b2b;
+            --bg: #121212;
+            --section-bg: #1a1a1a;
+            --text-dark: #f0f0f0;
+            --text-muted: #cccccc;
+            --card-bg: #242424;
+            --nav-bg: rgba(20, 20, 20, 0.95);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --border: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .brand {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Header & Navigation --- */
+        nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            height: 70px;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        /* --- Mobile Nav Overlay --- */
+        .mobile-nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transform: translateY(-150%);
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(40, 20, 20, 0.7), rgba(40, 20, 20, 0.7)), url('banner.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: clamp(0.9rem, 4vw, 1.4rem);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        .offer-badge {
+            background: var(--gold);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #ffffff !important;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- Sections --- */
+        .section {
+            padding: clamp(60px, 10vw, 100px) 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* --- Profile --- */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-img-container {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            position: relative;
+        }
+
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: -15px;
+            bottom: -15px;
+            left: 15px;
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            aspect-ratio: 3/4;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Admission --- */
+        .admission-box {
+            background: linear-gradient(135deg, #4b2a2a, #2a1b1b);
+            color: #ffffff;
+            padding: clamp(30px, 8vw, 60px);
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+
+        .discount-banner {
+            background: var(--gold);
+            color: #ffffff;
+            padding: 10px 30px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #111111;
+            color: #ffffff;
+            padding: 60px 5% 30px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background: #222222;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        /* --- Mobile Responsive Rules --- */
+        @media (max-width: 850px) {
+            nav {
+                padding: 0 7%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .profile-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .profile-img-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .section {
+                padding: 60px 8%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 75vh;
+            }
+        }
+
+        /* Pills */
+        .pills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        @media (min-width: 851px) {
+            .pills-container {
+                justify-content: flex-start;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        .pill {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+
+    <nav>
+        <a href="#" class="brand">
+            <i class="fas fa-gem"></i>
+            Trishna
+        </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#about">Profile</a>
+                <a href="#services">Expertise</a>
+                <a href="#gallery">Portfolio</a>
+                <a href="#contact">Admission</a>
+            </div>
+            <div class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="#about" onclick="toggleMenu()">Profile</a>
+        <a href="#services" onclick="toggleMenu()">Expertise</a>
+        <a href="#gallery" onclick="toggleMenu()">Portfolio</a>
+        <a href="#contact" onclick="toggleMenu()">Admission</a>
+    </div>
+
+    <header class="hero">
+        <div class="offer-badge">✨ 25% DISCOUNT OPEN NOW!</div>
+        <p>Your Beauty Trainer</p>
+        <h1>Trishna's Glam Corner</h1>
+        <a href="https://wa.me/916290907588" class="btn-gold">
+            <i class="fab fa-whatsapp"></i> Join Her Class
+        </a>
+    </header>
+
+    <section id="about" class="section">
+        <div class="profile-container">
+            <div class="profile-img-container">
+                <img src="trishna_profile.png" alt="Trishna Das" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h3 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 10px;">Trishna Das</h3>
+                <p style="font-weight: 700; color: var(--gold); letter-spacing: 2px; margin-bottom: 20px;">CERTIFIED
+                    GROOMING TRAINER</p>
+                <p>
+                    Passionate trainer and beauty artist. Specializing in professional **Makeup Classes** where I help
+                    aspiring artists master bridal, party, and glamour techniques with practical, industry-standard
+                    grooming.
+                </p>
+
+                <div style="margin: 30px 0;">
+                    <a href="banner.png" target="_blank" class="btn-gold"
+                        style="background: var(--primary); border: none; color: white !important; box-shadow: var(--shadow);">
+                        <i class="fas fa-info-circle"></i> VIEW DETAIL
+                    </a>
+                </div>
+
+                <div class="pills-container">
+                    <span class="pill">Professional Trainer</span>
+                    <span class="pill">Bridal Mastery</span>
+                    <span class="pill">Grooming Ethics</span>
+                    <span class="pill">Hospitality Background</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section" style="background: var(--section-bg);">
+        <div class="section-title">
+            <h2>The Trainer Role</h2>
+            <p>Elevating Beauty & Confidence</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>Expert Mentorship</h3>
+                <p>One-on-one sessions for grooming, executive presence, and professional confidence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-palette"></i></div>
+                <h3>Makeup Classes</h3>
+                <p>Hands-on training for bridal, festive, and high-fashion makeup artistry.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-star"></i></div>
+                <h3>Glamour Skills</h3>
+                <p>Learn advanced hairstyling and fashion styling for the hospitality industry.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="section-title">
+            <h2>Work Showcase</h2>
+            <p>Signature Transformations</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="makeup_1.jpg" alt="Work 1">
+            </div>
+            <div class="gallery-item">
+                <img src="makeup_2.jpg" alt="Work 2">
+            </div>
+            <div class="gallery-item">
+                <img src="makeup_3.jpg" alt="Work 3">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--section-bg);">
+        <div class="section-title">
+            <h2>Certification</h2>
+        </div>
+        <div
+            style="max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+            <img src="certificate_grooming.png" alt="Certificate" style="width: 100%; display: block;">
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="admission-box">
+            <div class="discount-banner">URGENT: 25% DISCOUNT FOR STUDENTS</div>
+            <h3 style="font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 20px;">Admissions Now Open!</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">Professional Makeup & Grooming Batch
+                starting soon at our Mankundu center.</p>
+
+            <a href="https://wa.me/916290907588" class="btn-gold"
+                style="background: white; color: #321414 !important; font-size: 1.1rem;">
+                <i class="fab fa-whatsapp"></i> Chat for Admission
+            </a>
+
+            <p style="margin-top: 35px; opacity: 0.7; font-size: 0.9rem;">Subhasnagar, Hooghly - 712139 | Offline
+                Classes Only</p>
+        </div>
+
+        <div style="margin-top: 60px; text-align: center;">
+            <p style="color: var(--gold); font-weight: 700;">STAY CONNECTED</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/18LJHGSL6K/" target="_blank" class="social-btn"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/tr1shna__?igsh=MTJsdGo3ZDhvZ212eA==" target="_blank"
+                    class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@tr1shna_777?si=gMl6nJguPTuZYT__" target="_blank" class="social-btn"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 class="brand" style="justify-content: center; color: var(--white); margin-bottom: 10px;">Trishna</h2>
+        <p style="opacity: 0.8;">Certified Professional Grooming Trainer</p>
+        <div class="footer-divider" style="height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0;"></div>
+        <p style="font-size: 0.8rem; opacity: 0.4;">&copy; 2026 Trishna Das. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Theme Toggle Logic
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        body.className = savedTheme;
+        updateThemeIcon();
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+            body.className = newTheme;
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+
+        function updateThemeIcon() {
+            icon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Mobile Menu Logic
+        function toggleMenu() {
+            mobileNav.classList.toggle('active');
+            const menuIcon = hamburgerMenu.querySelector('i');
+            menuIcon.className = mobileNav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        }
+
+        hamburgerMenu.addEventListener('click', toggleMenu);
+    </script>
+
+</body>
+
+</html>
